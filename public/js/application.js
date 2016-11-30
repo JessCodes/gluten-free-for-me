@@ -26,7 +26,7 @@ var registrationButtonListener = function(){
     })
     request.done(function(response){
       $('.header-main').prepend(response);
-      $('#register-form').toggle();
+      $('#register-form').slideToggle();
     })
   })
 }
@@ -36,6 +36,19 @@ var loginButtonListener = function(){
     event.preventDefault();
     // console.log(event, "event");
     // console.log(this, "this");
-    
+
+    var $loginLink = $(this)
+    var url = $loginLink.parent().attr('action')
+    var method = $loginLink.parent().attr('method')
+
+    var request = $.ajax({
+      url: url,
+      method: method
+    })
+    request.done(function(response){
+      $('.header-main').prepend(response);
+      $('#login-form').slideToggle();
+    })
+
   })
 }
