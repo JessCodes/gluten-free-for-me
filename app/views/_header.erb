@@ -1,14 +1,27 @@
 <% if current_user %>
   <h1> Hello <%= current_user.name.capitalize %></h1>
-  <a href="/">Home</a>
-  <a href="/users/<%= current_user.id %>">Profile</a>
+  
+  <form method="GET" action="/" >
+    <button class="home-link" type="submit">Home</button>
+  </form>
+  <br>
+  <form method="GET" action="/users/<%= current_user.id %>" >
+    <button class="profile-link" type="submit">Profile</button>
+  </form>
   <br>
   <form action='/sessions/logout' method='get'>
-  <br>
     <button type='submit'>Logout</button>
   </form>
 <% else %>
-  <a href="/users/new">Register</a>
-  <a href="/sessions">Login</a>
-  <a href="/">Home</a>
+  <form id="register-form" method="GET" action="/users/new" >
+    <button class="register-link" type="submit">Register</button>
+  </form>
+  <br>
+  <form method="GET" action="/sessions" >
+    <button class="login-link" type="submit">Login</button>
+  </form>
+  <br>
+  <form method="GET" action="/" >
+    <button class="home-link" type="submit">Home</button>
+  </form>
 <% end %>
