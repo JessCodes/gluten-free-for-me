@@ -27,3 +27,5 @@ group :test, :development do
   gem 'factory_girl'
   gem 'faker', '~>1.6.6'
 end
+
+gem 'dotenv'
